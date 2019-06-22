@@ -10,7 +10,7 @@ const viewsPath = path.join(__dirname, '../messari/view')
 app.set('view engine', 'hbs')
 app.set('views', viewsPath )
 
-const staticPath = path.join(__dirname, 'public')
+const staticPath = path.join(__dirname, '../public')
 console.log(staticPath)
 
 app.use(express.static(staticPath))
