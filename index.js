@@ -6,12 +6,13 @@ const app = express()
 const port = process.env.PORT || 3000
 const dataObject = require('./messariRouter')
 const viewsPath = path.join(__dirname, '../messari/view')
+app.engine('hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
+app.set('view engine', 'hbs');
 
-app.set('view engine', 'hbs')
 app.set('views', viewsPath )
 
-const staticPath = path.join(__dirname, '../public')
-console.log(staticPath)
+// const staticPath = path.join(__dirname, '../public')
+// console.log(staticPath)
 
 app.use(express.static(staticPath))
 let newData = new Object()
