@@ -12,6 +12,7 @@ app.set('views', viewsPath )
 
 const staticPath = path.join(__dirname, 'public')
 console.log(staticPath)
+
 app.use(express.static(staticPath))
 let newData = new Object()
 
@@ -25,14 +26,15 @@ data.then((value)=> {
     newData = value.data[0]})
 
 
-app.get('', async (req, res)=>{
+app.get('', (req, res)=>{
     console.log('requesting')
    
-    await res.render(('display'),{
+     res.render(('display'),{
       name : newData.name,
       metrics: newData.metrics.market_data.price_usd
              }
     )})
 
-app.listen(port)
+app.listen(port, () => {
 console.log('Server started on '+ port)
+})
